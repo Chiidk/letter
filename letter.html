@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Love Letter</title>
+    <link href="https://fonts.cdnfonts.com/css/frutilla" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fff5f7;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        .envelope-container {
+            position: relative;
+            width: 400px; /* Larger size */
+            height: 300px; /* Larger size */
+            cursor: pointer;
+        }
+        
+        .envelope {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, #ff9bb3, #ff7a9e);
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: 2;
+        }
+        
+        .envelope:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-left: 200px solid transparent;
+            border-right: 200px solid transparent;
+            border-top: 140px solid #ff6b8b;
+            transform-origin: top;
+            transform: rotateX(0deg);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: 3;
+            filter: drop-shadow(0 -3px 5px rgba(0,0,0,0.1));
+        }
+        
+        .letter {
+            position: absolute;
+            width: 92%;
+            height: 100%;
+            background-color: #fff9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-sizing: border-box;
+            top: 10px;
+            left: 4%;
+            transform: translateY(220px);
+            opacity: 0;
+            transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1) 0.2s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            color: #5a3d4a;
+            line-height: 1.6;
+            font-size: 16px; /* Slightly larger font */
+            overflow-y: auto;
+            border: 1px solid #ffd6e0;
+            font-family: 'Frutilla', cursive;
+        }
+        
+        .letter-content {
+            margin-bottom: 15px;
+        }
+        
+        .signature {
+            font-style: italic;
+            margin-top: 20px;
+            text-align: right;
+        }
+        
+        .open .envelope {
+            transform: translateY(-80px);
+            z-index: 1;
+        }
+        
+        .open .envelope:before {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+        
+        .open .letter {
+            transform: translateY(-80px);
+            opacity: 1;
+            z-index: 3;
+        }
+        
+        .heart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 70px; /* Larger heart */
+            z-index: 4;
+            transition: all 0.4s ease;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        }
+        
+        .open .heart {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.5);
+        }
+        
+        h1 {
+            color: #d35d7e;
+            font-size: 22px; /* Larger heading */
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 500px) {
+            .envelope-container {
+                width: 320px;
+                height: 240px;
+            }
+            .letter {
+                font-size: 14px;
+                padding: 15px;
+            }
+            h1 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="envelope-container" id="envelope">
+        <div class="envelope"></div>
+        <div class="letter">
+            <h1>To my greatest love,</h1>
+            <div class="letter-content">
+                <p>Hi! Before anything else, I want to greet you a happy 20th birthday! Ik we're not okay but even in this way, I hope you can feel my love and the importance of your birthday to me. I want you to know that I'm so proud of you because at your age, you are already earning money which shows how you value your studies and ofc pati family mo.</p>
+                
+                <p>Ik you're not okay and not doing well but I still hope and pray for you to be happy even in your hardest situation. Ik and I can see that you are struggling rn, just pray and remember that a lot of people still care for you and loves you. I hope you don't let sadness consume you for too long. Ik how heavy it feels. Ik how hard it is to pretend that you're okay when you're not. Ik it is hard to pretend and make yourself believe that you are strong and that you are okay even if bumibigay ka na. Ik how exhausted life is. I pray that God will heal you from the things that you are carrying, the struggles no one sees.</p>
+                
+                <p>I may not be the best gf, I may not give you the love that you deserve but trust me, I'm doing everything I can. I'm sorry if you feel like I don't care about you anymore. I may not show it to you but I really do. I just failed to show it to you. I'm sorry if for now I can't be your pahinga kasi napagod na rin ako e. I'm sorry if I'm not there when the time you need me the most.</p>
+                
+                <p>Whatever happen, even if we became distant and barely talk. I want you to know and remember how much I care for you and how much I love you. You'll always be in part of my prayer. Mag-iingat ka palagi, kayo ni RJ.</p>
+                
+                <p>Happy Birthday again, love! I love you, always.</p>
+            </div>
+            <div class="signature">
+                <p>Yours truly,</p>
+                <p>Tine</p>
+            </div>
+        </div>
+        <div class="heart">❤</div>
+    </div>
+
+    <script>
+        const envelope = document.getElementById('envelope');
+        
+        envelope.addEventListener('click', function() {
+            this.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
